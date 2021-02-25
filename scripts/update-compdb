@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+bazel build //:comp-db
+cp bazel-bin/compile_commands.json .
+
+chmod ug+rw ./compile_commands.json
+chmod a+r ./compile_commands.json

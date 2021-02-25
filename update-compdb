@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-bazelisk build //:comp-db
-cp bazel-bin/compile_commands.json .

@@ -1,6 +1,12 @@
 #include <iostream>
 
+std::string greeting() {
+    std::string msg = "Hello";
+    msg.append(", ");
+    msg.append("Bazel");
+    return msg;
+}
+
 int main() {
-    std::string greeting = "Hello Bazel";
-    std::cout << greeting << "\n";
+    std::cout << greeting().c_str() << "\n";
 }
