@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eou pipefail
+
+target=$1
+
+# Build the target
+bazel build -c dbg "$target" 2>/dev/null
+
+# create a common symlknk to the binary
+binary_path=$(bazel run -c dbg --run_under "echo" "$target" 2>/dev/null)
+[[ -e ./bazel-bin/vscode-debug-target ]] && rm -f ./bazel-bin/vscode-debug-target
+ln -s "$binary_path" ./bazel-bin/vscode-debug-target
